@@ -16,7 +16,7 @@ def install_package(p):
 
 # Create venv for ansible
 
-os.mkdir("~/.deployment", mode=0o750,*,dir_fd = None)
+os.mkdir("/home/grimdark/.deployment", mode=0o750,*,dir_fd = None)
 
 subprocess.run(['python3','-m','venv','~/.deployment/.venv/'])
 
