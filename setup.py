@@ -1,11 +1,15 @@
 import subprocess, sys, os
 import getpass
+from pathlib import Path
 
 sys.path.append('/usr/lib/python3/dist-packages/')
 
 # Set initial variables
 
 sudo_password = getpass.getpass(prompt='sudo password: ')
+current_user = getpass.getuser()
+home_dir = Path.home()
+
 
 # Define functions
 def install_package(p):
@@ -16,7 +20,7 @@ def install_package(p):
 
 # Create venv for ansible
 
-os.mkdir("/home/grimdark/.deployment", mode=0o750,*,dir_fd = None)
+os.mkdir(f"${home_dir}.deployment", mode=0o750,*,dir_fd = None)
 
 subprocess.run(['python3','-m','venv','~/.deployment/.venv/'])
 
